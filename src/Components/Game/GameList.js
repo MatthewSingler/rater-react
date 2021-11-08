@@ -14,13 +14,13 @@ export const GameList = (props) => {
                 games.map(game => {
                     return <section key={`game--${game.id}`} className="game">
                         <h3>Game</h3>
-                        <div className="game__title">{game.title} Created by {game.designer}</div>
+                        {/*<div className="game__title">{game.title} Created by {game.designer}</div>
                         <div className="game__release">{game.release_year}</div>
                         <div className="game__players">{game.number_of_players} players needed</div>
                         <div className="game__time">Time is {game.time_to_play}</div>
                         <div className="game__age">Recommended age is {game.age_recommendation}</div>
                         <br>
-                        </br>
+                </br>*/}
                     </section>
                 })
             }

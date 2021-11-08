@@ -8,7 +8,7 @@ export const ApplicationViews = () => {
             margin: "5rem 2rem",
             lineHeight: "1.75rem"
         }}>
-            <Route exact path="/">
+            <Route exact path="/games/:gameId(\d+)">
                 <GameList />
             </Route>
         </main>

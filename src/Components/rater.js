@@ -2,6 +2,8 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./Nav/NavBar"
 import { Login } from "./Auth/Login"
 import { Register } from "./Auth/Register"
+import { Route, Redirect } from "react-router-dom"
+
 
 export const GamerRater = () => (
     <>

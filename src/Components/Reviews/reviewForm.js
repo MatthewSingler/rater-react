@@ -18,34 +18,36 @@ export const ReviewForm = () => {
         copyReview[review.target.name] = review.target.value
         setReview(copyReview)
     }
+    const saveReview = (review) => {
+        createReview(review).then(() => {
+            history.push("/")
+        })
+    }
 
-    return (
-        <>
-            <label>Review</label>
-            <input category="text" name="content" onChange={(review) => handleOnChange(review)}></input>
-            <br>
-            </br>
-            <select name="game" onChange={(review) => handleOnChange(review)}>
-                <option value="0">Select a Game</option>
-                {
-                    games.map(game => <option value={game.id}>{game.title}</option>)
-                }
-            </select>
-
-            <button
-                onClick={evt => {
-                    evt.preventDefault()
-
-                    const review = {
-                        game: currentReview.game,
-                        review: currentReview.content,
-                        player: currentReview.player
+        return (
+            <>
+                <label>Review</label>
+                <input category="text" name="content" onChange={(review) => handleOnChange(review)}></input>
+                <br>
+                </br>
+                <select name="game" onChange={(review) => handleOnChange(review)}>
+                    <option value="0">Select a Game</option>
+                    {
+                        games.map(game => <option value={game.id}>{game.title}</option>)
                     }
+                </select>
 
-                    createReview(review)
-                        .then(() => history.push("/"))
-                }}
-                className="btn btn-primary">Review</button>
-        </>
-    )
+                <button
+                    onClick={rev => {
+                        rev.preventDefault()
+                        const review = {
+                            game: currentReview.game,
+                            review: currentReview.content,
+                            player: currentReview.player
+                        }
+                        saveReview(review)
+                    }}
+                    className="btn btn-primary">Review</button>
+            </>
+        )
 }

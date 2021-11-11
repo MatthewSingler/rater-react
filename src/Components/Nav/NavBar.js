@@ -7,9 +7,10 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                <Link className="nav-Link" to="/">Games</Link></li>
+                <Link className="nav-Link" to="/">Games</Link>
+            </li>
             <li className="navbar__item">
-                Navigation link
+                <Link className="nav-Link" to="/"></Link>
             </li>
             <li className="navbar__item">
                 Navigation link
@@ -33,5 +34,5 @@ export const NavBar = () => {
                         </li>
                     </>
             }        </ul>
-    )
+        )
 }

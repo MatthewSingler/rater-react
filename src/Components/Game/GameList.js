@@ -25,13 +25,13 @@ export const GameList = (props) => {
                         <div className="game__age">Recommended age is {game.age_recommendation}</div>
                         <br>
                         </br>
+                        <button className="btn btn-2 btn-sep icon-create"
+                            onClick={() => { history.push( `/game/${game.id}/review`) }}>Review Game</button>
                     </section>
                 })
             }
             <button className="btn btn-2 btn-sep icon-create"
                 onClick={() => { history.push({ pathname: "/game/new" }) }}>Create Game</button>
-            <button className="btn btn-2 btn-sep icon-create"
-                onClick={() => { history.push({ pathname: "/game/review" }) }}>Review Game</button>
         </article>
     )
 }

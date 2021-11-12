@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
-import { getGames } from "../Game/GameManager"
+import { getGames, getSingleGame } from "../Game/GameManager"
 import { createReview } from "./review"
 
 
@@ -8,6 +8,19 @@ export const ReviewForm = () => {
     const history = useHistory()
     const [currentReview, setReview] = useState({})
     const [games, setGames] = useState([])
+    const { gameId } = useParams()
+    useEffect(() => {
+        if (gameId) {
+            getSingleGame(gameId).then((gameData) => setGames({
+                ...gameData,
+                skillLevel: gameData.skill_level,
+                numberOfPlayers: gameData.number_of_players,
+                gameTypeId: gameData.game_type.id,
+                ageRecommendation: gameData.age_recommendation,
+                releaseYear: gameData.release_year
+            }))
+        }
+    }, [gameId])
 
     useEffect(() => {
         getGames().then(data => setGames(data))
@@ -20,7 +33,7 @@ export const ReviewForm = () => {
     }
     const saveReview = (review) => {
         createReview(review).then(() => {
-            history.push("/")
+            history.push(`/games/${gameId}`)
         })
     }
 
